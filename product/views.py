@@ -7,6 +7,7 @@ from product.models import task
 def len2(text) : 
     return len(text) 
 
+
 def home (request) :
     x = task.objects.all()
     titles = []
@@ -15,16 +16,11 @@ def home (request) :
        titles.append(str (l))
     new = ",".join(titles)
     return HttpResponse(new)
-# ---------------------------------------------
-# def home (request) : 
-#     x = task.objects.all()
-#     titles = []
-#     # l = len(titles)
-#     for i in x : 
-#        titles.append(len(i.title))
-#     #    l = len(titles)
-#     # new = ",".join(l)
-#     return HttpResponse(titles)
-    
-#    ----------------------------------
-
+# --------------------------------------------------
+def task_new (request): 
+    task = list(task.object.all()) 
+    i = [] 
+    for x in task : 
+        i.append(x.title)
+    context = {"list_task" : task} 
+    return render(request , 'product/start.html' , context)
