@@ -18,9 +18,9 @@ def home (request) :
     return HttpResponse(new)
 # --------------------------------------------------
 def task_new (request): 
-    task = list(task.object.all()) 
-    i = [] 
-    for x in task : 
-        i.append(x.title)
-    context = {"list_task" : task} 
+    task2 = list(task.objects.all()) 
+    # i = [] 
+    # for x in task : 
+    #     i.append(x.title)
+    context = {"list_task" : task2} 
     return render(request , 'product/start.html' , context)

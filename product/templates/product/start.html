@@ -4,7 +4,9 @@
   </head>
   <body>
     <h1>This is a Heading2</h1>
+    {% for i in list_task %}
+    <p>{{i.title}} | {{ i.student.full_name }}</p>
+    {% endfor %}
     <p>This is a paragraph.</p>
-    <p>{{task}}</p>
   </body>
 </html>

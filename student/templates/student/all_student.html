@@ -1,0 +1,15 @@
+<html>
+  <head>
+    <title>Page Title</title>
+  </head>
+  <body>
+    <h1>students page</h1>
+    <ul>
+      {% for student in students %}
+      <li>{{student.full_name }} : {{student.score}}</li>
+      {% endfor %}
+    </ul>
+    <p>This is a paragraph.</p>
+    <p>{{task}}</p>
+  </body>
+</html>
