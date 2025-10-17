@@ -8,7 +8,7 @@ class task(models.Model) :
     category = models.CharField(max_length = 56)
     description = models.TextField() 
     # date = models.DateField()  
-    student = models.ForeignKey(students , on_delete=models.CASCADE)
+    student = models.ForeignKey(students , on_delete=models.CASCADE , related_name= "tasks")
     def __str__(self):
         return self.title
     

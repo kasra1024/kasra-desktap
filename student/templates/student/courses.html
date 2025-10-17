@@ -1,0 +1,12 @@
+<html>
+  <head>
+    <title>My First Webpage</title>
+  </head>
+  <body>
+    {% for i in course %}
+    <p>{{i.title}}</p>
+    {% for student in i.students.all%}
+    <p>{{student.full_name}}</p>
+    {% endfor %} {% endfor %}
+  </body>
+</html>

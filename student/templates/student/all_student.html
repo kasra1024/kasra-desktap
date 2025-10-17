@@ -7,7 +7,11 @@
     <ul>
       {% for student in students %}
       <li>{{student.full_name }} : {{student.score}}</li>
-      {% endfor %}
+      {% for course in student.courses.all %}
+      <p>{{ course.title }}</p>
+      {% endfor %} {% for task in student.tasks.all %}
+      <p>{{ task.title }}</p>
+      {%endfor%} {% endfor %}
     </ul>
     <p>This is a paragraph.</p>
     <p>{{task}}</p>

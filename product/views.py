@@ -19,8 +19,13 @@ def home (request) :
 # --------------------------------------------------
 def task_new (request): 
     task2 = list(task.objects.all()) 
-    # i = [] 
-    # for x in task : 
-    #     i.append(x.title)
     context = {"list_task" : task2} 
     return render(request , 'product/start.html' , context)
+# ---------------------------------------------------------------------------------
+
+
+def task_student (request , st_id) : 
+    
+    task_student= task.objects.filter(student_id =st_id ) 
+    context = {"tasks" : task_student} 
+    return render (request , "product/new.html" , context)
