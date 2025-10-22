@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponse
 # Create your views here.
 from product.models import task
+from student.models import students
 
 
 def len2(text) : 
@@ -25,7 +26,6 @@ def task_new (request):
 
 
 def task_student (request , st_id) : 
-    
     task_student= task.objects.filter(student_id =st_id ) 
     context = {"tasks" : task_student} 
     return render (request , "product/new.html" , context)
