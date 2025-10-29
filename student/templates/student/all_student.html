@@ -3,22 +3,28 @@
     <title>Page Title</title>
   </head>
   <body>
-    <form action ={% url "student:student_list" %} method="post">
+   
+    <h1>students page</h1>
+    <ul>
+      {% for i in studentss %}
+      <li>{{i.full_name }} : {{i.score}}</li>
+
+      {% for course in i.courses.all %}
+      <p>{{ course.title }}</p>
+      {% endfor %} 
+      
+      {% for task in i.tasks.all %}
+      <p>{{ task.title }}</p>
+        {%endfor%} 
+      {% endfor %}
+    </ul>
+
+
+     <form action ={% url "student:student_list" %} method="post">
       {% csrf_token %}
       {{ form.as_p }}
       <input type="submit" value="submit" />
     </form>
-    <h1>students page</h1>
-    <ul>
-      {% for student in students %}
-      <li>{{student.full_name }} : {{student.score}}</li>
-      {% for course in student.courses.all %}
-      <p>{{ course.title }}</p>
-      {% endfor %} {% for task in student.tasks.all %}
-      <p>{{ task.title }}</p>
-      {%endfor%} {% endfor %}
-    </ul>
-    <p>This is a paragraph.</p>
-    <p>{{task}}</p>
+    
   </body>
 </html>

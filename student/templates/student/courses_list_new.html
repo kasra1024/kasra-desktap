@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <title>لیست دوره‌ها</title>
+</head>
+<body>
+    <h2>لیست دوره‌ها</h2>
+
+    {% if courses %}
+        <ul>
+            {% for course in courses %}
+                <li>
+                    <strong>{{ course.name }}</strong><br>
+                    {{ course.description }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>هیچ دوره‌ای ثبت نشده است.</p>
+    {% endif %}
+</body>
+</html>

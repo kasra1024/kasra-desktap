@@ -4,7 +4,7 @@ from django.db import models
 
 class students (models.Model): 
     name = models.CharField (max_length=64) 
-    score = models.IntegerField(max_length=64) 
+    score = models.IntegerField() 
     full_name = models.CharField (max_length=64)
     phone_number = models.CharField(max_length=13)
     def __str__(self):
