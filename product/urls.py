@@ -5,6 +5,6 @@ app_name = "product"
 
 
 urlpatterns = [path('home/',home) ,
-               path ('home2/' , task_new) ,
+               path ('home2/' , task_new , name="home") ,
                path ('home3/<int:st_id>/' , task_student , name="home later") , 
                ]

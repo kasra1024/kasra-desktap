@@ -5,7 +5,7 @@ from student.models import Course
 class StudentForm(ModelForm): 
     class Meta : 
         model = students 
-        fields = ['full_name', 'name', 'phone_number']
+        fields = ['full_name', 'user']
 
   
 

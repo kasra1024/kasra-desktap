@@ -59,3 +59,16 @@ class LogoutView(View) :
         if request.user.is_authenticated : 
             logout(request)
         return redirect ("account:user_login")
+    
+# ----------------------------------------------------------------------
+# delet
+
+class DeleteView (View) : 
+    def get (self , request) : 
+        if request.user.is_authenticated :
+            try : 
+                user= User.objects.get(id=request.user.id) 
+                user.delete()
+                return redirect("product:home")
+            except :
+                return redirect("studet:add_course")
