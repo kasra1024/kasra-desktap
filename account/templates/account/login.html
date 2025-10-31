@@ -37,14 +37,13 @@
         </h3>
     </head>
     <body>
-      <a class="btn" href={% url "account:user_logout" %}>User logout</a>
         <p>
             {{message}}
         </p>
-         <form action ={% url "student:CourseForm" %} method="post">
+         <form action ={% url "account:user_login" %} method="post">
             {% csrf_token %}
             {{ form.as_p }}
-            <input type="submit" value="submit" />
+            <input type="submit" value="input" />
     </form>
     </body>
 </html>

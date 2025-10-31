@@ -2,7 +2,7 @@ from django.shortcuts import render , redirect
 from student.models import students , Course
 from student.forms import StudentForm
 from django.views import View 
-from student.forms import CourseStudentForm
+from student.forms import CourseStudentForm 
 # Create your views here.
 
 
@@ -13,6 +13,7 @@ def student_view (request) :
     if request.method == 'GET' : 
  
         all_students = students.objects.all() 
+        id = all_students.values_list("id" , flat=True) 
         context = {"studentss" : all_students , "form": form}
         
         return render(request , html_file , context)
@@ -63,9 +64,10 @@ def AddCourse (request) :
     template = "Course/add_course.html"
 
     if request.method == "GET" :
-        form = CourseStudentForm()
-        all_course = Course.objects.all() 
-        return render (request , template , {"form" : form , "courses" : all_course}) 
+        if request.user.is_authenticated: 
+            form = CourseStudentForm()
+            all_course = Course.objects.all() 
+            return render (request , template , {"form" : form , "courses" : all_course}) 
     
     elif request.method == "POST" : 
         co_form = CourseStudentForm(request.POST)
@@ -88,3 +90,29 @@ def course_list (request) :
     context = {"all_courses" : all_courses}
     template = "student/courses_list_new.html"
     return render (request , template , context) 
+
+
+# ---------------------------------------------------------
+
+# 2 
+
+# class FormStudentView(View) : 
+    
+#     template = "student/StudentViewForm.html"
+
+#     def get (self , request) : 
+#         form = StudentViewForm 
+#         return render (request , self.template , {"form" : self.form}) 
+    
+
+#     def post (self , request) : 
+#         st_form =  StudentViewForm (request.POST)
+#         if st_form.is_valid() : 
+#             new_form = st_form.save()
+#             if new_form : 
+#                 return None
+#         return render (request , self.template , {"form" : self.form}) 
+            
+
+
+# ///////////////////////////////////////////////////////////////////////////////////////////

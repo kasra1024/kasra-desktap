@@ -7,3 +7,10 @@ class UserRegisterForm (ModelForm) :
         model = User 
         fields = ["first_name" , "username" , "password"] 
         
+
+
+
+class UserLoginFrom (ModelForm) : 
+    class Meta : 
+        model = User
+        fields = ["username" , "password"] 
